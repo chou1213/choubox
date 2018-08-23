@@ -13,17 +13,17 @@ program
 
 program
     .command('create <dir>')
-    .description('create a development directory')
+    .description('choubox create a development directory!')
     .action((dir, cmd) => {
         // console.log(dir, cmd);
         require('../lib/create')(dir, cmd);
     })
 
 program
-    .command('init')
-    .description('init webpack config')
-    .action(() => {
-        require('../lib/init')();
+    .command('init <dir>')
+    .description('choubox init project!')
+    .action((dir, cmd) => {
+        require('../lib/init')(dir, cmd);
     })
 
 program.parse(process.argv)
