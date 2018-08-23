@@ -19,4 +19,11 @@ program
         require('../lib/create')(dir, cmd);
     })
 
+program
+    .command('init')
+    .description('init webpack config')
+    .action(() => {
+        require('../lib/init')();
+    })
+
 program.parse(process.argv)
