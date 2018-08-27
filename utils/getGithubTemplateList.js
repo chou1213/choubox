@@ -1,25 +1,27 @@
-const request = require('request-promise');
+const request = require('request');
 
-module.exports = async function() {
+module.exports = function() {
     let choices = [];
-    await request({
-            uri: 'https://api.github.com/repos/chou1213/templates/contents/',
+
+    return new Promise((resolve, reject) => {
+        request({
+            url: 'https://api.github.com/repos/chou1213/templates/contents/',
             headers: {
                 'User-Agent': 'request'
-            },
-            json: true
-        })
-        .then(function(res) {
-            res.forEach(element => {
-                if (element.type === 'dir') {
-                    choices.push(element.name);
-                }
-            })
-
-        })
-        .catch(function(err) {
-            console.log(err);
+            }
+        }, (error, response, body) => {
+            if (!error && response.statusCode == 200) {
+                var info = JSON.parse(body);
+                info.forEach(element => {
+                    if (element.type === 'dir') {
+                        choices.push(element.name);
+                    }
+                })
+                resolve(choices)
+            } else {
+                reject(error)
+            }
         });
 
-    return choices;
+    });
 }
