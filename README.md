@@ -2,10 +2,16 @@
 > webpack4-h5 命令行工具
 
 ## install
-> npm i choubox -g
+```javascript
+npm i choubox -g
+```
 
 ## 初始化webpack配置
-> choubox init
+```javascript
+choubox init <directory>
+```
 
-## 创建项目
-> choubox create <directory>
+## 创建开发项目
+```javascript
+choubox create <directory>
+```
