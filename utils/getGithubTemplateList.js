@@ -5,7 +5,7 @@ module.exports = function() {
 
     return new Promise((resolve, reject) => {
         request({
-            url: 'https://api.github.com/repos/chou1213/templates/contents/',
+            url: 'https://api.github.com/repos/chou1213/choubox-templates/contents/',
             headers: {
                 'User-Agent': 'request'
             }
