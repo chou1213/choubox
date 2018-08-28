@@ -2,6 +2,8 @@ const request = require('request');
 const download = require('download');
 const fs = require('fs');
 const path = require('path');
+const cfs = require('./createFile');
+const chalk = require('chalk');
 
 
 module.exports = (template, dir, paths) => {
@@ -20,26 +22,24 @@ module.exports = (template, dir, paths) => {
                     let dirPath = element.path.split('/');
 
                     if (element.type === 'blob' && dirPath[dirPath.length - 1].indexOf('.') > 0) {
-                        dirPath.shift();
-                        console.log(path.resolve(paths, `./${dirPath.join('/')}`))
+                        dirPath[0] = './';
                         dirPath.pop();
-                        downloadSource.push({ url: `https://raw.githubusercontent.com/chou1213/templates/master/${element.path}`, path: path.resolve(paths, `./${dirPath.join('/')}`) });
+                        downloadSource.push({ url: `https://raw.githubusercontent.com/chou1213/templates/master/${element.path}`, path: path.resolve(paths, dirPath.join('/')) });
                     } else if (element.type === 'tree') {
-                        dirPath.shift();
-                        console.log(path.resolve(paths, `./${dirPath.join('/')}`))
-                        fs.mkdir(path.resolve(paths, `./${dirPath.join('/')}`), function(err) {
-                            if (err) {
-                                console.log(err);
-                            }
-                        })
+                        dirPath[0] = './';
+                        cfs(path.resolve(paths, dirPath.join('/')), ).then(() => {}).catch(err => {
+                            // console.log(err);
+                        });
                     }
                 }
             });
 
-            console.log(downloadSource);
-            // Promise.all(downloadSource.map(x => download(x.url, x.path))).then(() => {
-            //     console.log('files downloaded!');
-            // })
+            // console.log(dxsownloadSource);
+            Promise.all(downloadSource.map(x => download(x.url, x.path))).then(() => {
+                console.log(chalk.green('\nFiles downloaded!\n\n'));
+            }).catch(err => {
+                console.log(err);
+            })
         } else {
             console.log(error);
         }
