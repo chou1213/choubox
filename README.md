@@ -12,6 +12,8 @@ choubox init <directory>
 ```
 
 ## 创建开发项目
+> 根据该仓库模版列表选择模版创建，链接：https://github.com/chou1213/templates
 ```javascript
 choubox create <directory>
 ```
+
