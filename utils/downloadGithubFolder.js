@@ -1,6 +1,5 @@
 const request = require('request');
 const download = require('download');
-const fs = require('fs');
 const path = require('path');
 const cfs = require('./createFile');
 const chalk = require('chalk');
@@ -33,8 +32,6 @@ module.exports = (template, dir, paths) => {
                     }
                 }
             });
-
-            // console.log(dxsownloadSource);
             Promise.all(downloadSource.map(x => download(x.url, x.path))).then(() => {
                 console.log(chalk.green('\nFiles downloaded!\n\n'));
             }).catch(err => {
