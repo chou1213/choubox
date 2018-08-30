@@ -3,6 +3,7 @@ const download = require('download');
 const path = require('path');
 const cfs = require('./createFile');
 const chalk = require('chalk');
+const numjucks = require('nunjucks');
 
 
 module.exports = (template, dir, paths) => {
@@ -19,7 +20,6 @@ module.exports = (template, dir, paths) => {
             info['tree'].forEach(element => {
                 if (element.path.indexOf(template) >= 0) {
                     let dirPath = element.path.split('/');
-
                     if (element.type === 'blob' && dirPath[dirPath.length - 1].indexOf('.') > 0) {
                         dirPath[0] = './';
                         dirPath.pop();
@@ -32,7 +32,8 @@ module.exports = (template, dir, paths) => {
                     }
                 }
             });
-            Promise.all(downloadSource.map(x => download(x.url, x.path))).then(() => {
+            Promise.all(downloadSource.map(x => download(x.url, x.path))).then((res) => {
+                console.log(res);
                 console.log(chalk.green('\nFiles downloaded!\n\n'));
             }).catch(err => {
                 console.log(err);
