@@ -12,18 +12,14 @@
     "author": "joan chen",
     "license": "ISC",
     "devDependencies": {
-        "bgy-cli": "^0.1.9",
-        "bgy-pb": "^0.2.0",
         "chalk": "^2.4.1",
         "commander": "^2.17.1",
         "download": "^7.1.0",
-        "execa": "^0.11.0",
         "git-clone": "^0.1.0",
         "inquirer": "^6.1.0",
         "nunjucks": "^3.1.3",
         "ora": "^3.0.0",
         "request": "^2.88.0",
-        "request-promise": "^4.2.2",
         "rimraf": "^2.6.2"
     }
 }
