@@ -39,6 +39,9 @@ module.exports = (template, dir, paths) => {
                 let str = nunjucks.render('./config.js', { dir: dir, date: `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}` });
                 fs.writeFileSync(path.resolve(paths, './config.js'), str)
                 console.log(chalk.green('\nCreated successfully!\n'));
+                console.log(chalk.cyan('To get start: \n'));
+                console.log('    npm start\n');
+                console.log('    npm run build\n');
             }).catch(err => {
                 console.log(err);
             })
