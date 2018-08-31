@@ -21,5 +21,6 @@
         "ora": "^3.0.0",
         "request": "^2.88.0",
         "rimraf": "^2.6.2"
-    }
+    },
+    "homepage": "https://github.com/chou1213/choubox"
 }
