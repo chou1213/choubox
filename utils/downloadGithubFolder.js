@@ -35,10 +35,15 @@ module.exports = (template, dir, paths) => {
                 }
             });
             Promise.all(downloadSource.map(x => download(x.url, x.path))).then((res) => {
-                nunjucks.configure(path.resolve(paths), { autoescape: true })
+                //rewrite config.js
+                nunjucks.configure(path.resolve(paths), { autoescape: true });
                 let date = new Date();
                 let str = nunjucks.render('./config.js', { dir: dir, date: `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}` });
-                fs.writeFileSync(path.resolve(paths, './config.js'), str)
+                fs.writeFileSync(path.resolve(paths, './config.js'), str);
+                //rewrite project.config.js
+                let projectConfig = `module.exports = {\n    'filename': '${dir}'\n};`;
+                fs.writeFileSync(path.resolve(paths, '../../script/project.config.js'), projectConfig);
+
                 console.log(chalk.green('\nCreated successfully!\n'));
                 console.log(chalk.cyan('To get start: \n'));
                 console.log('    npm start\n');
