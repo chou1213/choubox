@@ -6,6 +6,7 @@ const chalk = require('chalk');
 const nunjucks = require('nunjucks');
 const ora = require('ora');
 const cfs = require('./createFile');
+const rm = require('rimraf').sync;
 
 module.exports = (template, dir, paths) => {
     let downloadSource = [];
@@ -43,9 +44,11 @@ module.exports = (template, dir, paths) => {
                 console.log('    npm start\n');
                 console.log('    npm run build\n');
             }).catch(err => {
+                rm(paths);
                 console.log(err);
             })
         } else {
+            rm(paths);
             console.log(info.message);
         }
     });
