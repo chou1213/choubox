@@ -46,8 +46,8 @@ module.exports = (template, dir, paths) => {
 
                 console.log(chalk.green('\nCreated successfully!\n'));
                 console.log(chalk.cyan('To get start: \n'));
-                console.log('    npm start  #The command to start this project!\n');
-                console.log('    npm run build  ##The command to build this project!\n');
+                console.log('    npm start \n');
+                console.log('    npm run build \n');
             }).catch(err => {
                 rm(paths);
                 console.log(err);
