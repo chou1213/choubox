@@ -1,5 +1,5 @@
 ## choubox cli
-> choubox是命令行工具,便于搭建webpack4-h5配置，以及快速创建开发项目。配置链接：https://github.com/chou1213/webpack4-h5
+> choubox是命令行工具,便于搭建webpack4-h5配置，以及快速创建开发项目。配置链接：https://github.com/chou1213/webpack-box
 
 ## install
 ```javascript
