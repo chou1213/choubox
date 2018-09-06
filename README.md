@@ -18,4 +18,4 @@ $ choubox create <directory>
 ```
 
 ## License
-[MIT](https://github.com/chou1213/choubox/blob/dev/LICENSE)
+[MIT](https://github.com/chou1213/choubox/blob/master/LICENSE)
