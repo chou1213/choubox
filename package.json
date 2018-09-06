@@ -9,7 +9,7 @@
     "bin": {
         "choubox": "./bin/choubox.js"
     },
-    "author": "joan chen",
+    "author": "joanchen",
     "license": "ISC",
     "devDependencies": {
         "chalk": "^2.4.1",
@@ -24,5 +24,10 @@
         "rimraf": "^2.6.2",
         "user-home": "^2.0.0"
     },
+    "keywords": [
+        "vue",
+        "node",
+        "webpack"
+    ],
     "homepage": "https://github.com/chou1213/choubox"
 }
