@@ -12,18 +12,18 @@ program
     .description(package.description);
 
 program
+    .command('init <dir>')
+    .description('choubox init project!')
+    .action((dir, cmd) => {
+        require('../lib/init')(dir, cmd);
+    })
+
+program
     .command('create <dir>')
     .description('choubox create a development directory!')
     .action((dir, cmd) => {
         // console.log(dir, cmd);
         require('../lib/create')(dir, cmd);
-    })
-
-program
-    .command('init <dir>')
-    .description('choubox init project!')
-    .action((dir, cmd) => {
-        require('../lib/init')(dir, cmd);
     })
 
 program.parse(process.argv)
